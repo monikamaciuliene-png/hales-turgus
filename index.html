@@ -692,6 +692,8 @@ h1, h2, h3, .w-title, .sv-title, .sp-wt, .p-title, .log-head h2, .st h3 { font-s
 .sh-opts { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 15px; font-weight: 400; }
 .sh-form textarea, .sh-form input[type="text"] { font: 15px var(--f-body); color: var(--ink); background: rgba(0, 11, 38, 0.5); border: 1px solid var(--line); border-radius: 10px; padding: 9px 12px; }
 .sh-file { justify-self: start; font: 600 13px var(--f-body); color: var(--ink-soft); padding: 7px 12px; border-radius: 8px; border: 1px dashed var(--line); }
+/* Lithuanian only: no language switch */
+#langBtn, #wLang, .pg-lang, #spLang { display: none !important; }
 </style>
 </head>
 <body>
@@ -849,7 +851,8 @@ h1, h2, h3, .w-title, .sv-title, .sp-wt, .p-title, .log-head h2, .st h3 { font-s
     return s === "pl" ? "pl" : "lt";
   })();
   const WELCOME = { v: 0, t: 0 };
-  const PLX = LANG === "pl", tr = (lt, pl) => PLX ? pl : lt, LOC = PLX ? "pl-PL" : "lt-LT";
+  // Halės turgus is Lithuanian only
+  const PLX = false, tr = (lt, pl) => PLX ? pl : lt, LOC = PLX ? "pl-PL" : "lt-LT";
   document.documentElement.lang = LANG;
   if (PLX) {
     document.title = "Wehikuł czasu Hali Miejskiej";
